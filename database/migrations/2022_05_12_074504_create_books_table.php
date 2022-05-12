@@ -28,6 +28,7 @@ return new class extends Migration
             $table->foreign('location_id')->references('id')->on('locations');
             $table->dateTime('publication_date');
             $table->integer('stock');
+            $table->string('image');//url image
             $table->string('status')->default('available');
             $table->timestamps();
         });
