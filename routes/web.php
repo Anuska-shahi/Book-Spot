@@ -16,5 +16,3 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/usrlogin',[UserController1::class,"usrlogin"])->name('usrlogin');
-Route::post('/usrloginCheck',[UserController1::class,"usrloginCheck"])->name('usrlogin.store');
