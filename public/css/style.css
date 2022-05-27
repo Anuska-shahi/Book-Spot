@@ -1,0 +1,40 @@
+section{
+    margin: 0;
+    height:700px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background:linear-gradient(rgba(153, 26, 26, 0.3),rgba(0,0,0,0.3));
+     
+    }
+ 
+.cont
+    {
+        align-items: center;
+        justify-content:center;
+        display:flex;
+       
+       /*background-attachment: fixed;*/
+        overflow:hidden;
+    }
+form
+    {
+        border: 2px solid white;
+        padding: 15px;
+        color: rgb(34, 26, 26);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+         align-items: center;
+         width:300px;
+        height:500px;
+        background:linear-gradient(rgba(153, 26, 26, 0.3),rgba(126, 55, 177, 0.3));
+
+        
+    }
+.user,.pass,.email
+    {
+        display: flex;
+        flex-direction: column;
+        
+    }
