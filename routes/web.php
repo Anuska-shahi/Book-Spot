@@ -1,7 +1,12 @@
 <?php
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BookController;
+
+use App\Http\Controllers\BookSpotController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,4 +30,6 @@ Route::get('/dash', [AdminController::class,"dashboardView"])->name('dash');
 Route::get('/adsignup',[AdminController::class,'signup']);
 Route::post('/adsignup',[AdminController::class,'sign'])->name('admin.sign');
 
-
+Route::get('/home', [BookSpotController::class, 'index']);
+Route::get('/books', [BookController::class, 'userBook']);
+Route::get('/desc/{book}', [BookController::class, 'desc'])->name('desc');
