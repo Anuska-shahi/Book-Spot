@@ -10,6 +10,7 @@ use App\Models\Admin;
 use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
+    //userlogin
     public function user()
     {
         return view('admin.adminlogin');
@@ -36,6 +37,8 @@ class UserController extends Controller
     //     }
 
     // }
+
+    //validation
     private function validator(Request $request)
     {
         //validation rules.
@@ -52,6 +55,7 @@ class UserController extends Controller
         //validate the request.
         $request->validate($rules,$messages);
     }
+    //authentication
     public function userlogin(Request $request)
     {
         $this->validator($request);
@@ -65,6 +69,7 @@ class UserController extends Controller
         return $this->user();
     }
 
+    //userdashboard
     public function userView()
     {
         return view('dashboard.userdash');

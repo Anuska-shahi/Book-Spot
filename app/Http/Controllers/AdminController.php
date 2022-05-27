@@ -11,11 +11,12 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 class AdminController extends Controller
 {
     //
-    
+    //loginform
     public function admin()
     {
         return view('admin.adminlogin');
     }
+
     // public function loginCheck(Request $request)
     // {
     //     // // dd($request);
@@ -30,6 +31,8 @@ class AdminController extends Controller
     //         return redirect()->route('admin.login');
     //     }
     // }
+
+    //login validation
    private function validator(Request $request)
 {
     //validation rules.
@@ -61,15 +64,19 @@ public function login(Request $request)
     return $this->admin();
 }
 
+//dashboard
     public function dashboardView()
     {
         return view('dashboard.admindash');
     }
+
+    //signupform
     public function signup()
     {
         return view('admin.adminsignup');
     }
     
+    //signup data
     public function sign(Request $request)
     {
         //dd($request);
