@@ -29,7 +29,6 @@ return new class extends Migration
             $table->dateTime('publication_date');
             $table->integer('stock');
             $table->string('image');//url image
-            $table->string('description');
             $table->string('status')->default('available');
             $table->timestamps();
         });
