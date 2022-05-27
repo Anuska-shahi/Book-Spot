@@ -14,7 +14,7 @@ class AdminController extends Controller
     
     public function admin()
     {
-        return view('admin.login');
+        return view('admin.adminlogin');
     }
     // public function loginCheck(Request $request)
     // {
@@ -60,6 +60,7 @@ public function login(Request $request)
     //Authentication failed...
     return $this->admin();
 }
+
     public function dashboardView()
     {
         return view('dashboard.admindash');

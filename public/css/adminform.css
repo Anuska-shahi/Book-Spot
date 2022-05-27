@@ -62,16 +62,18 @@ align-items: center;
   #textbox
   {
     border-bottom:2px solid black;
+    font-size: 18px;
   }
   #textbox2
   {
     border-bottom:2px solid black;
     margin-bottom: 10px;
+    font-size: 15px;
   }
   
   .admin
   {
-    padding: 2vh;
+    padding: 5vh;
   }
   
   .psw{
