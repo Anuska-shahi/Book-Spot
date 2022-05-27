@@ -1,7 +1,7 @@
 <?php
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,4 +15,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+}); 
+//admin login
+Route::namespace('Auth')->group(function(){
+Route::get('/adminlog',[AdminController::class,'admin'])->name('log');
+Route::post('/loginCheck',[AdminController::class,"login"])->name('logincheck');
+Route::get('/dash', [AdminController::class,"dashboardView"])->name('dash');
 });
+Route::get('/adsignup',[AdminController::class,'signup']);
+Route::post('/adsignup',[AdminController::class,'sign'])->name('admin.sign');
+
+
