@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('address');
             $table->string('phone_no');
             $table->dateTime('dob');
+            //$table->dateTime('regdate');
             $table->string('active')->default('no');
             $table->rememberToken();
             $table->timestamps();
