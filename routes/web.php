@@ -1,6 +1,9 @@
 <?php
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
+use App\Http\Middleware\UserLogin;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +18,21 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+}); 
+
+Route::namespace('Auth')->group(function(){
+    //admin login
+Route::get('/adminlog',[AdminController::class,'admin'])->name('log');
+Route::post('/loginCheck',[AdminController::class,"login"])->name('logincheck');
+Route::get('/dash', [AdminController::class,"dashboardView"])->name('dash');
+
+//user login
+Route::post('/userloginCheck',[UserController::class,"userlogin"])->name('usrlogin');
+Route::get('/userdash', [UserController::class,"userView"])->name('usrdash');
 });
+
+//admin signup
+Route::get('/adsignup',[AdminController::class,'signup']);
+Route::post('/adsignup',[AdminController::class,'sign'])->name('admin.sign');
+
+
