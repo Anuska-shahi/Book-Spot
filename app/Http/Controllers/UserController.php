@@ -8,70 +8,64 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Models\User;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Hash;
+use Session;
 class UserController extends Controller
 {
-    //userlogin
-    public function user()
+    //user login
+    public function login()
     {
-        return view('admin.adminlogin');
+        return view('login');
     }
-    // public function create(Request $request)
-    // {
-    //     $user=new User();
-    //     $user->name=$request->name;
-    //     $user->first_name=$request->first_name;
-    //     $user->last_name=$request->last_name;
-    //     $user->email=$request->email;
-    //     $user->password=Hash::make($request->password);
-    //     $user->address=$request->address;
-    //     $user->phone_no=$request->phone_no;
-    //     $user->dob=$request->dob;
-    //     $query=$user->save();
-    //     if($query)
-    //     {
-    //         return back()->with('sucess','You have entered data');
-    //     }
-    //     else{
-    //         return back()->with('fail','Something is wrong');
-
-    //     }
-
-    // }
-
-    //validation
-    private function validator(Request $request)
+    public function registration()
     {
-        //validation rules.
-        $rules = [
-            'email'    => 'required|email|exists:users|min:5|max:191',
-            'password' => 'required|string|min:4|max:255',
-        ];
-    
-        //custom validation error messages.
-        $messages = [
-            'email.exists' => 'These credentials do not match our records.',
-        ];
-    
-        //validate the request.
-        $request->validate($rules,$messages);
+        return view('signup');
     }
-    //authentication
-    public function userlogin(Request $request)
+    public function registerUser(Request $request)
     {
-        $this->validator($request);
-        
-        if(Auth::guard('web')->attempt($request->only('email','password'),$request->filled('remember'))){
-            //Authentication passed...
-            return redirect()->route('usrdash');
+        $request->validate([
+            'name'=>'required',
+            'email'=>'required|email|unique:users',
+            'password'=>'required|min:5|max:12',
+        ]);
+        $user =new User();
+        $user->name=$request->name;
+        $user->email=$request->email;
+        $user->password=Hash::make($request->password);
+        $res=$user->save();
+        if($res)
+        {
+            return back()->with('success','You have registered');
         }
-    
-        //Authentication failed...
-        return $this->user();
-    }
+        else
+        {
+            return back()->with('fail','Something wrong');
+        }
 
-    //userdashboard
-    public function userView()
+    }
+    public function loginUser(Request $request)
     {
-        return view('dashboard.userdash');
+        $request->validate([
+            'email'=>'required|email',
+            'password'=>'required|min:5|max:12',
+        ]);
+        $user = User::where('email','=',$request->email)->first();
+        if($user)
+        {
+            if(Hash::check($request->password,$user->password))
+            {
+                $request->session()->put('loginId',$user->id);
+                return redirect('dashboard');
+            }
+            else{
+                return back()->with('fail','password not matched');
+            }
+        }
+        else{
+            return back()->with('fail','Not registered');
+        }
+    }
+    public function dashboard()
+    {
+        return "Welcome to dashboard";
     }
 }

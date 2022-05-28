@@ -27,8 +27,10 @@ Route::post('/loginCheck',[AdminController::class,"login"])->name('logincheck');
 Route::get('/dash', [AdminController::class,"dashboardView"])->name('dash');
 
 //user login
-Route::post('/userloginCheck',[UserController::class,"userlogin"])->name('usrlogin');
-Route::get('/userdash', [UserController::class,"userView"])->name('usrdash');
+Route::get('/registration',[AdminController::class,'registration']);
+Route::post('/register-user',[AdminController::class,'registerUser'])->name('register-user');
+Route::post('/login-user',[AdminController::class,'loginUser'])->name('login-user');
+Route::get('/dashboard',[AdminController::class,'dashboard'])->name('dash1');
 });
 
 //admin signup
