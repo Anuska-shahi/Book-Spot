@@ -63,6 +63,11 @@ public function login(Request $request)
     //Authentication failed...
     return $this->admin();
 }
+function admindash()
+    {
+        return view('admin');
+    }
+
 
 //dashboard
     public function dashboardView()

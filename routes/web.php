@@ -35,4 +35,5 @@ Route::get('/userdash', [UserController::class,"userView"])->name('usrdash');
 Route::get('/adsignup',[AdminController::class,'signup']);
 Route::post('/adsignup',[AdminController::class,'sign'])->name('admin.sign');
 
+Route::get('/admin', [AdminController::class, 'admindash']);
 
