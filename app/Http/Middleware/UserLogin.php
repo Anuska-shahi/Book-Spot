@@ -16,8 +16,11 @@ class UserLogin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::check())
-        return redirect()-> route('usrdash');
+        if(!Session()->has('loginId'))
+        {
+            return redirect('log')->with('fail','You have to login first');
+        }
+
         return $next($request);
     }
 }

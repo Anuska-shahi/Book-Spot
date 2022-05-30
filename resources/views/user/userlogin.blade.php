@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>Login/Sign up</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{asset('css/index.css')}}">
-    <link rel="stylesheet" href="{{asset('css/adminform.css')}}">
-    <link rel="stylesheet" href="{{asset('css/dash.css')}}">
+
+    <link rel="stylesheet" href="{{asset('css/userlogin.css')}}">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 </head>
 <body>
+  <!--navbar-->
     <div class="b-example-divider"></div>
 
   <div class="container">
@@ -32,36 +32,45 @@
 
       <div class="col-md-3 text-end">
       
-       <button type="button" class="btn btn-primary">    
-         @if(Auth::check())
-        <div>{{Auth::admin()->name}}</div>
-        @else
-            <div> Login</div>
-        @endif</button>
+       <button type="button" class="btn btn-primary"><a href="loginsignup.html"><font color="red">Login / Sign up</font></a></button>
       </div>
     </header>
   </div>
-<body>
-    </div>
-    <section class="sidebar">
-      <div class="text">
-        <ul>
-        <img src="/img/icon.png" width="50" height="40" alt="logo" class="image"><h4>The book spot</h4></img>
-            <li><a href="#">Members</a></li>
-            <li><a href="#">Books</a>
-            <ul>
-              <li><a href="#">Authors</a></li>
-              <li><a href="#">Publication</a></li>    
-              <li><a href="#">location</a></li>    
-              <li><a href="#">Categories</a></li>
-                 
-            </ul>
-            </li>
-            <li><a href="#">Book-issue</a></li>
-            <li><a href="#">Return</a></li>
-            <li><a href="/logout">Logout</a></li>
-        </ul>
+
+  <section class="con">
+ <!-- userlogin -->
+  <form method="post" class="usr" action="{{route('login-user')}}">
+  @csrf   
+  @if (Session::has('success'))
+    <div class="alert alert-success">{{Session::get('success')}}</div>
+    @endif
+    @if (Session::has('fail'))
+    <div class="alert alert-danger">{{Session::get('fail')}}</div>
+    @endif
+  <h2>User Login</h2>
+      
+      <div class="user" id="textbox2">
+        <i class="fa fa-user"><input type="text" name="email" value="{{old('email')}}"placeholder="Email"></i>
       </div>
-    </section>
+      <span class="text-danger">@error('email'){{$message}}@enderror</span>
+
+    
+      <div class="psw" id="textbox2">
+        <i class="fa fa-key">
+        <input type="password" name="password" placeholder="Password"></i>
+
+      </div>
+      <span class="text-danger">@error('password'){{$message}}@enderror</span>
+
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me">Remember me
+        </label><br/>
+      </div>
+      <button type="submit" class="sub">Submit</button><br/>
+      <a href="/registration">New User?Sign up</a><br/>
+  </form> 
+</section>
+
 </body>
-</html>
+</head>

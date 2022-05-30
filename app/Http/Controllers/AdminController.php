@@ -46,23 +46,30 @@ public function login(Request $request)
         return view('dashboard.admindash');
     }
 
-    // //signupform
-    // public function signup()
-    // {
-    //     return view('admin.adminsignup');
-    // }
+    //logout
+    public function logout(Request $request)
+    {
+       session()->flush();
+       return redirect()->route('log');
+    }
+
+    //signupform
+    public function signup()
+    {
+        return view('admin.adminsignup');
+    }
     
-    // //signup data
-    // public function sign(Request $request)
-    // {
-    //     //dd($request);
-    //     $admin= new Admin();
-    //     $admin-> email=$request->email;
-    //     $admin-> username=$request->name;
-    //     $admin->password=bcrypt($request->password);
-    //     $admin->save();
-    //     return redirect()->route('admin.log');
-    // }
+    //signup data
+    public function sign(Request $request)
+    {
+        //dd($request);
+        $admin= new Admin();
+        $admin-> email=$request->email;
+        $admin-> username=$request->name;
+        $admin->password=bcrypt($request->password);
+        $admin->save();
+        return redirect()->route('log');
+    }
   
 // }
 }

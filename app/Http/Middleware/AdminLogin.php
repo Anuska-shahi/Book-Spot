@@ -16,8 +16,10 @@ class AdminLogin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::check())
-            return redirect()-> route('dash');
+        if(!Auth::guard('admin')->check())
+        {
+            return redirect()-> route('admin');
+        }
         return $next($request);
     }
 }
