@@ -4,49 +4,67 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title')</title>
+    <title>Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <!-- <link href="css/layout.css" rel="stylesheet"> -->
+    <link href="index.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel='stylesheet' href="{{asset('/css/layout.css')}}">
     <link rel='stylesheet' href="{{asset('/css/BooksStyle.css')}}">
-    <!-- <script src="{{asset('/js/BookHover.js')}}"></script> -->
-    <link rel='stylesheet' href="{{asset('/css/form.css')}}">
-    <!-- <script src="{{asset('/js/onclickfont.js')}}"></script> -->
+    <link rel="stylesheet" href="{{asset('css/adminform.css')}}">
+    <link rel="stylesheet" href="{{asset('css/dash.css')}}">
+    <link rel="stylesheet" href="{{asset('css/usersignup.css')}}">
+    <script src="{{asset('js/navbar.js')}}"></script>
+
+
 
 </head>
 <body>
-    <div class="b-example-divider"></div>
-<!-- header -->
-  <div class="container" >
-    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-      <a href="/home" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-        <img src='{{asset("images/icon.png")}}' width="50" height="40" alt="logo" style="padding-right:0%" >
-        <div class="logo"> <p>the book spot</p></div>
-        <!-- <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg> -->
-      </a>
+  <div class="b-example-divider"></div>
 
-     
-      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="/home" class="nav-link px-2 link-secondary" > Home</a></li>
-        <li><a href="/books" class="nav-link px-2 link-dark">Books</a></li>
-     
-      </ul>
-       <div class="col-md-3 text-end" id ="change">
-        
-        <button type="button" class="btn btn-primary"><a href="/adminlog"><font color="white">Login / Sign up</font></a></button>
+  <header class="p-3 bg-dark text-white sticky-top">
+
+    <div class="container">
+      
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <img src='{{asset("images/logo.png")}}' width="150" height="50" alt="logo" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </a>
+      
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          
+          <li><a href="/home" class="nav-link px-2 text-white">Home</a></li>&nbsp;&nbsp;
+          <li><a href="/books" class="nav-link px-2 text-white">Books</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             <font color="white">Browser</font>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{{route('categories',1)}}">Fiction</a>
+              <a class="dropdown-item" href="{{route('categories',2)}}">Non-fiction</a>
+              <a class="dropdown-item" href="{{route('categories',3)}}">Thriller</a>
+            </div>
+          </li>
+        </ul>
+
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+          <input type="search" class="form-control form-control-dark text-white bg-dark" placeholder="Search..." aria-label="Search">
+        </form>
+
+        <div class="text-end">
+          <button type="button" style="background-color:white; border-color:grey" class="btn btn-outline-light me-2"><font color="black">Login</font>
+          </button>
+          <button style="background-color:grey; border-color:grey" type="button" class="btn btn-warning">Sign-up</button>
+        </div>
       </div>
+    </div>
 
-    
-    </header>
-  </div>
-  <!-- end of header -->
+  </header>
+ 
+  <!-- end header -->
   @yield('content')
-
-  <!-- footer -->
+ <!-- start footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="row">
@@ -95,5 +113,8 @@
       </div>
     </div>
 </footer>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>

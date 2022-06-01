@@ -6,27 +6,34 @@ use App\Models\Category;
 use App\Models\Author;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+
 class BookController extends Controller
 {
     //
-    function adminBook(){
+    function categories(){
         $data=Book::all();
-        return view('adminbooks',['books'=>$data]);
+        $cat = Category::all();
+        $count=1;
+        return view('books.categories',compact('data','cat','count'));
     }
     function userBook(){
-        // $data = Book::join('categories', 'categories.id', '=', 'books.category_id')
-        // ->get();
         $data = Book::all();
         $cat = Category::all();
-        //$id = Book::all();
-        return view('books')->with(['books'=>$data])->with(['cat'=>$cat]);
+        $catcount=Category::count();
+        $count=0;
+        // for($i=0;$i<=$catcount;$i++){
+        //     $data = DB::table('books')->where('category_id', '=', '$i')->get();
+        // //     $colcount=$data->count();
+        // }
+       
+        return view('books.books',compact('data','cat','catcount','count')); 
     }
-        
     function desc()
     {
         $a=Book::all();
         $auth=Author::all();
-        return view('description',['books'=>$a],['auth'=>$auth]);
-    } 
+        return view('books.description',['books'=>$a],['auth'=>$auth]);
+    }
+ 
 }
 

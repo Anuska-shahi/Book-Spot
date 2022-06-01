@@ -11,9 +11,4 @@ class BookSpotController extends Controller
     {
         return view('home');
     }
- 
-    function login()
-    {
-        return view('login');
-    }
 }
