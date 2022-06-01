@@ -1,0 +1,27 @@
+
+.publication-form fieldset{
+    position: relative;
+    padding:300px;
+    left:10px;
+    width:300px;
+ 
+}
+.publication-form form{
+    width:500px;
+    position: relative;
+    left:5px;
+ 
+}
+
+.publication-table{
+    position: relative;
+    width:1000px;
+    height: 100px;
+    top:290px;
+    right:480px;
+}
+
+.publication-table table{
+    width:900px;
+
+}

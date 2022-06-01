@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Admin;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -60,9 +61,12 @@ public function login(Request $request)
     //Authentication failed...
     return $this->admin();
 }
+// public function author(){
+// return view('author');
+// }
     public function dashboardView()
     {
-        return view('dashboard.admindash');
+        return view('admin');
     }
     public function signup()
     {

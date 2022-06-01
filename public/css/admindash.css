@@ -3,28 +3,23 @@
     user-select:none;
     box-sizing:border-box;
 }
-section
+.sidebar
 {
-    position:relative;
     padding-top: 10px;
-    width:200px;
-    top:-10px;
-    left:10px;
-    bottom:30px;
+    /* bottom:30px; */
     display:flex;
-    background:rgba(0,0,0,0.1);
+    height: 88vh;
+    background:#69A4A0;
     border:1px solid black;
-    border-radius: 10px;
     padding-top:20px;
-    box-shadow:5px 7px 10px rgba(0,0,0,0.1);
-
+    
 }
-section ul{
+.sidebar ul{
 position:relative;
 list-style: none;
 font-size: 18px;
 }
-section ul li a{
+.sidebar ul li a{
   align-items: center;
     text-transform: capitalize;
     color:black;
@@ -35,8 +30,8 @@ section ul li a{
     transition: width 2s ease;
     border-radius: 10px;
 }
-section ul li a:hover{
-    background: rgba(0,0,0,0.7);
+.sidebar ul li a:hover{
+    background: rgba(171, 192, 123, 0.7);
     position:relative;
     align-content: center;
     left:-10px;
@@ -44,20 +39,21 @@ section ul li a:hover{
     text-decoration: none;
     color:#fff;
 }
-section ul ul 
-{
-    position: relative;
-    font-size: 16px;
-    top:0;
-    list-style:disc;
-    list-style-position:initial;
-    border-radius: 5px;
-}
-section ul .sidebar
+/* section ul .sidebar
 {
     position:relative;
-}
-section ul .sidebar:hover ul{
+} */
+/* section ul .sidebar:hover ul{
     display: initial;
+} */
+.text{
+    width:180px;
+    position: sticky;
+    /* position:relative; */
+    top:0px;
+    
 }
+.content{
+    display:flex;
 
+}
