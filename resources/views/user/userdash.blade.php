@@ -35,11 +35,6 @@
     </ul>
 
     <div class="col-md-3 text-end">
-      @if(Auth::guard('admin')->check())
-      {
-        hello {{Auth::guard('admin')->user()->username}}
-      }
-      @endif
      <button> <font color="black">  <a href="logout">logout</a></font>
    
       </button>
@@ -47,7 +42,7 @@
 </div>
 <div class="cont">
 <div class="row">
-<h4>Welcome to dashboard</h4>
+<h4>Welcome to User dashboard</h4>
     <table class="table">
         <thead>
           <th>Id</th>

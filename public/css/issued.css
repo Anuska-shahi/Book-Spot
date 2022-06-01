@@ -1,0 +1,22 @@
+.issue-cont
+{
+    padding: 3vh;
+    position: relative;
+    left:30vh;
+    width:80%;
+    top:-80vh;
+}
+thead{
+    background-color:#69A4A0;
+}
+th{
+    color:white;
+   font-size: medium;
+
+}
+
+td{
+font-size:medium;
+border-bottom: 2px solid aliceblue;
+
+}

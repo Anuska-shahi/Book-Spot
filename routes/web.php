@@ -3,6 +3,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\IssuedController;
+use App\Http\Controllers\ReturnController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,4 +46,8 @@ Route::get('/logout-user', [UserController::class,"logoutUser"])->name('logout-u
 Route::get('/adsignup',[AdminController::class,'signup']);
 Route::post('/adsignup',[AdminController::class,'sign'])->name('admin.sign');
 
+//book issued
+Route::get('/issued',[IssuedController::class,'issueBook'])->name('book-issued');
 
+//book returned
+Route::get('/returned',[ReturnController::class,'returnBook'])->name('book-returned');
