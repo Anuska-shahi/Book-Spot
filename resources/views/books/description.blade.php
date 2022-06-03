@@ -5,8 +5,11 @@
 <div class="Books-Section" >
 @foreach($books as $book)
      @if(\Route::current()->parameter('book') == $book['id'])
+     <div class="goback">
+     <a href="/books" style=""><img src='{{asset("images/goback.png")}}'><font color="white">Go back</font></a>
+</div>
         <div class="books-description">
-            <img src='{{asset("images/$book->image")}}'>
+            <img src='{{asset("images/books/$book->image")}}'>
             <div class="description">
                 <div id="title">
                     {{$book['title']}}<br/>
@@ -28,4 +31,7 @@
 @endforeach
 </div>
 <!-- end of description -->
+@stop
+@section('footer')
+@include('footer')
 @stop

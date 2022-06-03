@@ -24,7 +24,7 @@
                         @php $count++; @endphp
                         <div class="books">
                           <a href="{{ route('desc',$book['id'] )}}"> 
-                            <img src="images/{{$book['image']}}" >
+                            <img src="images/books/{{$book['image']}}" >
                           </a>
                           </div>
                          
@@ -47,5 +47,8 @@
   </table>
 </div>
 <!-- end of book section -->
+@stop
+@section('footer')
+@include('footer')
 @stop
 

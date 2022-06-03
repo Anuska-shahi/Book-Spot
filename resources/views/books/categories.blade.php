@@ -19,7 +19,7 @@
                        
                         <div class="books">
                           <a href="{{ route('desc',$book['id'] )}}"> 
-                            <img src='{{asset("$book->image")}}' >
+                            <img src='{{asset("images/books/$book->image")}}' >
                           </a>
                           </div> 
                           
@@ -28,7 +28,7 @@
                    
                           <td><div class="books">
                           <a href="{{ route('desc',$book['id'] )}}"> 
-                            <img src='{{asset("images/$book->image")}}' >
+                            <img src='{{asset("images/books/$book->image")}}' >
                           </a>
                           </div>  
                           </td>
@@ -47,3 +47,6 @@
 @endforeach
 </div>
 @stop 
+@section('footer')
+@include('footer')
+@stop
