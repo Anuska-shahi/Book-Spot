@@ -14,7 +14,7 @@ class AdminController extends Controller
     
     public function admin()
     {
-        return view('admin.login');
+        return view('admin.adminlogin');
     }
     // public function loginCheck(Request $request)
     // {
@@ -77,8 +77,9 @@ public function login(Request $request)
         $admin-> username=$request->name;
         $admin->password=bcrypt($request->password);
         $admin->save();
-        return redirect()->route('admin.log');
+        return redirect()->route('log');
     }
+    
   
 // }
 }

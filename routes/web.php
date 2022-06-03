@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,5 +25,5 @@ Route::get('/dash', [AdminController::class,"dashboardView"])->name('dash');
 });
 Route::get('/adsignup',[AdminController::class,'signup']);
 Route::post('/adsignup',[AdminController::class,'sign'])->name('admin.sign');
-
-
+Route::get('/adminmember',[UserController::class,'member'])->name('admin.member');
+Route::get('/memberstatus',[UserController::class,'status'])->name('changeStatus');
