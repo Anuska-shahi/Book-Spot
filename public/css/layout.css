@@ -1,3 +1,18 @@
+
+.example {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(201, 175, 175);
+  opacity: 0.6;
+}
 .site-footer
 {
   background-color:#26272b;
@@ -152,6 +167,7 @@
 {
   background-color:#ea4c89
 }
+
 @media (max-width:767px)
 {
   .social-icons li.title
@@ -161,4 +177,3 @@
     font-weight:600
   }
 }
-

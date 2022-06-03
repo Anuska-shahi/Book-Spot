@@ -1,0 +1,27 @@
+
+.category-form fieldset{
+    position: relative;
+    padding:300px;
+    left:10px;
+    width:300px;
+ 
+}
+.category-form form{
+    width:500px;
+    position: relative;
+    left:5px;
+ 
+}
+
+.category-table{
+    position: relative;
+    width:1000px;
+    height: 100px;
+    top:290px;
+    right:480px;
+}
+
+.category-table table{
+    width:900px;
+
+}
