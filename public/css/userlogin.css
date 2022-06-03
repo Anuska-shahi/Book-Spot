@@ -1,0 +1,79 @@
+.user-login{
+    background:linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)),url('/img/li3.jpg');
+  background-size: contain;
+  background-position:center;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  align-items: center;
+      display: flex;
+     padding: 95.5px;
+     padding-left: 83vh;
+     overflow:hidden;
+    }
+    @media(min-width: 900px) {
+        .con,.content,.content1{
+          display:flex;
+        }
+      }
+      .user-login form
+    {
+      border: 2px solid black;
+      color:black;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+       align-items:center;
+       height:450px;
+      width:300px;
+      background-color:floralwhite;
+      box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+      border-radius: 25px;
+    }
+    .fa
+    {
+      color:black;
+      min-width: 50px;
+      text-align:left;
+    }
+    .user-login input
+    {
+    
+      border:none;
+      outline:none;
+      background: none;
+    
+    }
+    .user-login form h2{
+      font-size: 25px;
+      border-bottom: 2px solid rgb(30, 28, 28);
+    }
+    .user-login #textbox2
+    {
+      border-bottom:2px solid black;
+      padding:10px;
+      font-size: 18px;
+    }
+    .user{
+        padding-top: 2%;
+    }
+    .user,.psw
+    {
+      display: flex;
+      flex-direction:column;
+      padding-bottom:5px;
+
+    }
+    .sub
+    {
+      font-weight: 600;
+      width: 50%;
+      color: #282726;
+      background-color:gainsboro;
+      border: none;
+      border-radius: 1.5rem;
+      padding:2%;
+    }
+    .sub:hover{
+      text-decoration:none;
+      color:lightblue;
+    }
+    

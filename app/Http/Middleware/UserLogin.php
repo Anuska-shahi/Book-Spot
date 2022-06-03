@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-class AdminLogin
+class UserLogin
 {
     /**
      * Handle an incoming request.
@@ -16,10 +16,11 @@ class AdminLogin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!Auth::guard('admin')->check())
+        if(!Session()->has('loginId'))
         {
-            return redirect()-> route('admin');
+            return redirect('log')->with('fail','You have to login first');
         }
+
         return $next($request);
     }
 }

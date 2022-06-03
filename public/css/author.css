@@ -1,0 +1,27 @@
+
+.author-form fieldset{
+    position: relative;
+    padding:300px;
+    left:10px;
+    width:900px;
+ 
+}
+.author-form form{
+    width:500px;
+    position: relative;
+    left:5px;
+ 
+}
+
+.author-table{
+    position: relative;
+    width:1000px;
+    height: 100px;
+    top:290px;
+    right:480px;
+}
+
+.author-table table{
+    width:900px;
+
+}

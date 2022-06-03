@@ -1,0 +1,14 @@
+.issue-table
+{
+    position: relative;
+    width:1050px;
+    height: 100px;
+    top:20px;
+    left:17px;
+
+}
+.issue-table table{
+    
+    width:2000px;
+  
+}
