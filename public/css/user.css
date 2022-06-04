@@ -1,0 +1,56 @@
+body{
+    margin: 0;
+    height:100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow:hidden;
+    /* background:linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url("li.jpg"); */
+    background-repeat: no-repeat;
+    background-size:cover;
+    }
+    .name
+    {
+        padding-left: 5px;
+    }
+    .container
+    {
+        align-items: center;
+        justify-content:center;
+        display:flex;
+        /* padding:25px; */
+        width: 100%;
+        height: 100vh;
+        
+        background:linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)),url('/img/li3.jpg');
+       /*background-attachment: fixed;*/
+        overflow:hidden;
+    }
+    form
+    {
+        border: 2px solid black;
+        border-radius: 40px;
+        padding: 15px 25px;
+        margin: 25px;
+        color: black;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+         align-items: center;
+         width:400px;
+        /* height:500px; */
+        
+    }
+    /* .user,.psw
+    {
+        display: flex;
+        flex-direction: column;
+        
+    } */
+   .container a
+   {
+       color:337ab7;
+   }
+   button:hover {
+    opacity: 0.8;
+    }

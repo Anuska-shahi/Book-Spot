@@ -2,6 +2,8 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,11 +20,13 @@ Route::get('/', function () {
 }); 
 //admin login
 Route::namespace('Auth')->group(function(){
-Route::get('/adminlog',[AdminController::class,'admin'])->name('log');
-Route::post('/loginCheck',[AdminController::class,"login"])->name('logincheck');
-Route::get('/dash', [AdminController::class,"dashboardView"])->name('dash');
-});
-Route::get('/adsignup',[AdminController::class,'signup']);
-Route::post('/adsignup',[AdminController::class,'sign'])->name('admin.sign');
+    Route::get('/adminlog',[AdminController::class,'admin'])->name('log');
+    Route::post('/loginCheck',[AdminController::class,"login"])->name('logincheck');
+    Route::get('/dash', [AdminController::class,"dashboardView"])->name('dash');
+    });
 
-
+Route::get('/Userlogin',[UserController::class,'Userlogin'])->name('Userlogin');
+Route::post('/userloginCheck',[UserController::class,'userloginCheck'])->name('userlogin.store');
+Route::get('/signup',[UserController::class,'usersignup'])->name('user.signup');
+Route::post('/store',[UserController::class,'store'])->name('store');
+Route::get('/userdashboard',[UserController::class,'userdashboard'])->name('userdashboard');//->middleware('auth');
