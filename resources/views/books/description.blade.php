@@ -25,6 +25,7 @@
                 @else
                     <input type="button" value="Unavailable" style=" background-color:#d42f66;cursor:default;">
                 @endif
+                <input type="submit" value="Reserve" style="background-color:#4fb9d1 ;cursor:pointer;">
             </div>
         </div>
     @endif
