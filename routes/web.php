@@ -35,18 +35,6 @@ Route::get('/home', [BookSpotController::class, 'index']);
 //Route::post('/store',[AuthorController::class,'store'])->name('store');
 //Route::get('/author',[AuthorController::class,'author'])->name('author');\
 Route::namespace('Auth')->group(function(){
-<<<<<<< HEAD
-    Route::get('/adminlog',[AdminController::class,'admin'])->name('log');
-    Route::post('/loginCheck',[AdminController::class,"login"])->name('logincheck');
-    Route::get('/dash', [AdminController::class,"dashboardView"])->name('dash');
-    });
-
-Route::get('/Userlogin',[UserController::class,'Userlogin'])->name('Userlogin');
-Route::post('/userloginCheck',[UserController::class,'userloginCheck'])->name('userlogin.store');
-Route::get('/signup',[UserController::class,'usersignup'])->name('user.signup');
-Route::post('/store',[UserController::class,'store'])->name('store');
-Route::get('/userdashboard',[UserController::class,'userdashboard'])->name('userdashboard');//->middleware('auth');
-=======
     //admin-login
 Route::get('/adminlog',[AdminController::class,'admin'])->name('log');
 Route::post('/loginCheck',[AdminController::class,"login"])->name('logincheck');
@@ -118,4 +106,3 @@ Route::get('/books', [BookController::class, 'userBook']);
 Route::get('/desc/{book}', [BookController::class, 'desc'])->name('desc');
 Route::get('/categories/{category}', [BookController::class, 'categories'])->name('categories');
 
->>>>>>> 92024729af46da155c64074524dba7e269c6f2de
