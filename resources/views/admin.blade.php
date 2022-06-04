@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{asset('css/return.css')}}">
 
 
+
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -38,7 +39,7 @@
            Hello {{Auth::guard('admin')->user()->username}}
            @endif</b></div> 
           <div class="text-end">
-            <button style="background-color:grey; border-color:grey" type="button" class="btn btn-warning">Sign-up</button>
+           <a href="{{route('admin-signup')}}"> <button style="background-color:grey; border-color:grey" type="button" class="btn btn-warning">Sign-up</button></a>
           </div>
         </div>
       </div>

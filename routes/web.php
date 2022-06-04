@@ -43,6 +43,9 @@ Route::get('/dash', [AdminController::class,"dashboardView"])->name('dash');
 //admin-logout
 Route::get('/logout', [AdminController::class,"logout"])->name('logout-admin');
 });
+//admin signup 
+Route::get('/adminsignup', [AdminController::class,"signup"])->name('admin-signup');
+Route::post('/sign', [AdminController::class,"sign"])->name('adminsign');
 
 //user login
 Route::get('/userlog',[UserController::class,'userLogin'])->name('userlog');
