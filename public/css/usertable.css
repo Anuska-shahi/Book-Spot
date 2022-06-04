@@ -1,0 +1,19 @@
+.cont
+{
+    padding:5vh;
+    padding-bottom: 20vh;
+}
+table{
+    border:5px;
+}
+thead{
+    background-color:#69A4A0;
+
+}
+th{
+    color:white;
+    font-size: medium;
+}
+td{
+    font-size: medium;
+}

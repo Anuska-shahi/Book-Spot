@@ -1,33 +1,27 @@
-.con{
+.admin-form{
   background:linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)),url('/img/li3.jpg');
-background-size: contain;
+background-repeat: no-repeat;
+background-size: cover;
 font-family:Georgia, 'Times New Roman', Times, serif;
 align-items: center;
+display: flex;
+padding: 95.5px;
+padding-left:70vh;
 }
-.cont{
-    display: flex;
-  }
-   
+.login
+{
+  position: relative;
+  top:-35vh;
+  left:110vh;
+  background-color:cornsilk;
+  color:aliceblue;
+}
   @media(min-width: 900px) {
     .con,.content,.content1{
       display:flex;
     }
   }
-  .content
-  {
-    padding-left: 50vh;
-    padding-top:5vh;
-    padding-bottom: 5vh;
-    
-  }
-  .content1
-  {
-   
-    padding-left: 20vh;
-    padding-top:5vh;
-    padding-bottom: 5vh;
-  }
-  form
+  .admin-form form
   {
     border: 2px solid black;
     color:black;
@@ -47,7 +41,7 @@ align-items: center;
     min-width: 50px;
     text-align:left;
   }
-  input
+  .admin-form input
   {
   
     border:none;
@@ -55,15 +49,15 @@ align-items: center;
     background: none;
   
   }
-  form h2{
+  .admin-form form h2{
     font-size: 25px;
     border-bottom: 2px solid rgb(30, 28, 28);
   }
-  #textbox
+  .admin-form #textbox
   {
     border-bottom:2px solid black;
   }
-  #textbox2
+  .admin-form #textbox2
   {
     border-bottom:2px solid black;
     margin-bottom: 10px;

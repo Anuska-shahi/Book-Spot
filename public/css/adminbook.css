@@ -1,0 +1,27 @@
+
+.adminbook-form fieldset{
+    position: relative;
+    padding:300px;
+    left:10px;
+    width:800px;
+ 
+}
+.adminbook-form form{
+    width:500px;
+    position: relative;
+    left:5px;
+ 
+}
+
+.adminbook-table{
+    position: relative;
+    width:1000px;
+    height: 100px;
+    top:470px;
+    right:480px;
+}
+
+.adminbook-table table{
+    width:900px;
+
+}
