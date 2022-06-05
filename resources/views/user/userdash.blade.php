@@ -15,8 +15,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-</head>
-<body>
+
     <div class="b-example-divider"></div>
 
     <header class="p-3 bg-dark text-white  ">
@@ -27,54 +26,42 @@
         <div class="col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"><a href="/home" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
           <img src='{{asset("images/logo.png")}}' width="150" height="50" alt="logo" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </a></div>
-          <div style="margin: 10px; font-size: 20px;"><b>@if(Auth::guard('web')->check())
-           Hello {{Auth::guard('web')->user()->id}}
-        @endif
-         </b></div> 
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          
+          <li><a href="/home" class="nav-link px-2 text-white">Home</a></li>&nbsp;&nbsp;
+          <li><a href="/books" class="nav-link px-2 text-white">Books</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             <font color="white">Browse</font>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="http://localhost:8000/categories/1">Fiction</a>
+              <a class="dropdown-item" href="http://localhost:8000/categories/2">Non-fiction</a>
+              <a class="dropdown-item" href="http://localhost:8000/categories/3">Thriller</a>
+              <a class="dropdown-item" href="http://localhost:8000/categories/4">Biography</a>
+              <a class="dropdown-item" href="http://localhost:8000/categories/5">Horror</a>
+
+            </div>
+          </li>
+        </ul>
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+          <input type="search" class="form-control form-control-dark text-white bg-dark" placeholder="Search..." aria-label="Search">
+        </form>
+        <div style="margin: 10px; font-size: 20px;"><b>
+         
+        
           <div class="text-end">
           <a href="{{route('logout-user')}}"><button style="background-color:grey; border-color:grey" type="button" class="btn btn-warning">Log Out</button></a>
           </div>
         </div>
       </div>
+      
     </header>
-
-
-<div class="cont">
-<div class="row">
-<h4>Welcome to User dashboard</h4>
-    <table class="table">
-        <thead>
-          <th>Id</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Book Name</th>
-            <th>Issued date</th>
-            <th>Due date</th>
-            <th>Returned date</th>
-            <th>Status</th>
-        </thead>
-        <tbody>
-            
-            @foreach($result as $row)
-            <tr>
-            <td>{{$row->id}}</td>
-                <td>{{$row->name}}</td>
-                <td>{{$row->email}}</td>
-                <td>{{$row->title}}</td>
-                <td>{{$row->issued_date}}</td>
-                <td>{{$row->due_date}}</td>
-                <td>{{$row->returned_date}}</td>
-                <td>{{$row->status}}</td>
-                @endforeach
-            </tr>
-       
-        </tbody>
-    </table>
-</div>
-</div>
 @section('footer')
 @include('footer')
 @stop
+</head>
+<body>
 </body>
 </html>
  

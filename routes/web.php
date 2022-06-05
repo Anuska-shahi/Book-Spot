@@ -30,7 +30,7 @@ Route::get('/', function () {
 }); 
 
 //homepage
-Route::get('/home', [BookSpotController::class, 'index']);
+Route::get('/home', [BookSpotController::class, 'index'])->name('home');
 
 //Route::post('/store',[AuthorController::class,'store'])->name('store');
 //Route::get('/author',[AuthorController::class,'author'])->name('author');\
@@ -50,6 +50,9 @@ Route::get('/userlog',[UserController::class,'userLogin'])->name('userlog');
 Route::get('/registration',[UserController::class,'userRegistration']);
 Route::post('/register-user',[UserController::class,'registerUser'])->name('register-user');
 Route::post('/login-user',[UserController::class,'loginUser'])->name('login-user');
+//myprofile
+Route::get('/profile', [UserController::class,'myprofile'])->name('profile');
+Route::post('userupdate',[UserController::class,'userupdate'])->name('userupdate');
 //user-dash
 Route::get('/dashboard',[UserController::class,'dashboard'])->name('dash1');
 //user-logout

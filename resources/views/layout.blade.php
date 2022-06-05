@@ -53,12 +53,21 @@
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
           <input type="search" class="form-control form-control-dark text-white bg-dark" placeholder="Search..." aria-label="Search">
         </form>
-
+        @if(Auth::check())
         <div class="text-end">
-          <a href="/adminlog"><button type="button" style="background-color:white; border-color:grey" class="btn btn-outline-light me-2"><font color="black">Login</font>
+          <a href="{{route('logout-user')}}"><button style="background-color:grey; border-color:grey" type="button" class="btn btn-warning">Log Out</button></a>
+          </div>
+        <div style="margin: 10px; font-size: 20px;"><b>
+          <a href="/profile">{{Auth::user()->name}}</a>
+          </b></div> 
+
+        @else
+        <div class="text-end">
+        <a href="/adminlog"><button type="button" style="background-color:white; border-color:grey" class="btn btn-outline-light me-2"><font color="black">Login</font>
           </button></a>
           <a href="/registration"><button style="background-color:grey; border-color:grey" type="button" class="btn btn-warning">Sign-up</button></a>
         </div>
+        @endif
       </div>
     </div>
 
