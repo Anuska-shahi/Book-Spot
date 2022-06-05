@@ -4,7 +4,7 @@
 
  <!-- userlogin -->
  <section class="user-login">
-
+ <button class="login"><a href="/adminlog">Admin login</a></button>
   <form method="post" class="usr" action="{{route('login-user')}}">
   @csrf   
   @if (Session::has('success'))

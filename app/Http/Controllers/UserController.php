@@ -65,7 +65,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data= User::find($id);
+        return view('edituser',['data'=>$data]);
     }
 
     /**
@@ -75,9 +76,18 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $data=User::find($request->id);
+        $data->id=$request->id;
+        $data->first_name=$request->first_name;
+        $data->last_name=$request->last_name;
+        $data->address=$request->address;
+        $data->phone_no=$request->phone_no;
+        $data->dob=$request->dob;
+        $data->email=$request->email;
+        $data->save();
+        return redirect('adminmember');
     }
 
     /**
@@ -88,7 +98,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data=User::find($id);
+        $data->delete();
+        return redirect('adminmember');
     }
     public function member()
     {
@@ -99,7 +111,6 @@ class UserController extends Controller
     {
         $user=User::find($request->user_id);
         $user->active = $request->status;
-        $user->save();
         $user->save();
         return response()->json(['success'=>'Status change']);
     }
@@ -157,13 +168,19 @@ class UserController extends Controller
         $user = User::where('email','=',$request->email)->first();
         if($user)
         {
+            if($user->active=='yes'){
             if(Hash::check($request->password,$user->password))
             {
                 $request->session()->put('loginId',$user->id);
+                Auth::attempt($request->except('_token'));
                 return redirect()->route('dash1');
             }
             else{
                 return back()->with('fail','password not matched');
+            }
+            }
+            else{
+                return back()->with('fail','This account is not active');
             }
         }
         else{

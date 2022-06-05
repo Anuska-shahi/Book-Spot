@@ -1,5 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthorController;
@@ -12,6 +14,7 @@ use App\Http\Controllers\IssuedController;
 use App\Http\Controllers\ReturnController;
 use App\Http\Controllers\BookSpotController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\SearchController;
 
 
 /*
@@ -42,11 +45,25 @@ Route::post('/loginCheck',[AdminController::class,"login"])->name('logincheck');
 Route::get('/dash', [AdminController::class,"dashboardView"])->name('dash');
 //admin-logout
 Route::get('/logout', [AdminController::class,"logout"])->name('logout-admin');
+
+
 });
-// Route::get('/adsignup',[AdminController::class,'signup']);
-// Route::post('/adsignup',[AdminController::class,'sign'])->name('admin.sign');
+//admin signup
+Route::get('/adminsignup',[AdminController::class,'signup'])->name('admin-signup');
+Route::post('/sign',[AdminController::class,'sign'])->name('adminsign');
+
+//admin-member
 Route::get('/adminmember',[UserController::class,'member'])->name('admin.member');
 Route::get('/memberstatus',[UserController::class,'status'])->name('changeStatus');
+Route::get('deletemember/{id}',[UserController::class,'destroy'])->name('user.delete');
+Route::get('editmember/{id}',[UserController::class,'edit'])->name('user.edit');
+Route::post('editmember',[UserController::class,'update'])->name('user.update');
+
+
+//search book
+Route::get('/searchindex',[SearchController::class,'results'])->name('searchpage');
+Route::get('/search',[SearchController::class,'search'])->name('search');
+
 
 //user login
 Route::get('/userlog',[UserController::class,'userLogin'])->name('userlog');
@@ -93,7 +110,9 @@ Route::post('editcat',[CategoryController::class,'update'])->name('update');
 
 //book issued
 Route::get('/issued',[IssuedController::class,'issueBook'])->name('book-issued');
-
+Route::get('/reserve/{book_id}/{user_id}',[IssuedController::class,'reserveBook'])->name('reserve');
+Route::get('/returnstatus',[IssuedController::class,'returned'])->name('returnstatus');
+Route::get('/issuedstatus',[IssuedController::class,'issued'])->name('issuedstatus');
 //book returned
 Route::get('/returned',[ReturnController::class,'returnBook'])->name('book-returned');
 

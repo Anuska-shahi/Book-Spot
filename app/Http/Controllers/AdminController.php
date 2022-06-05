@@ -34,7 +34,7 @@ public function login(Request $request)
     
     if(Auth::guard('admin')->attempt($request->only('email','password'),$request->filled('remember'))){
         //Authentication passed...
-        return redirect('dash');
+        return redirect('adminbook');
     }
 
     //Authentication failed...

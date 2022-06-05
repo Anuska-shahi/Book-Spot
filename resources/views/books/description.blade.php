@@ -6,7 +6,7 @@
 @foreach($books as $book)
      @if(\Route::current()->parameter('book') == $book['id'])
      <div class="goback">
-     <a href="/books" style=""><img src='{{asset("images/goback.png")}}'><font color="white">Go back</font></a>
+     <a href="/books" ><img src='{{asset("images/goback.png")}}'><font color="white">Go back</font></a>
 </div>
         <div class="books-description">
             <img src='{{asset("images/books/$book->image")}}'>
@@ -20,11 +20,15 @@
                      @endif
                 @endforeach
                 {{$book['description']}}<br/>
+                
                 @if($book['stock']>1)
                     <input type="button" value="Available" style=" background-color: aquamarine;cursor:default;" >
+                    <a href="#" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Borrow</a>
                 @else
                     <input type="button" value="Unavailable" style=" background-color:#d42f66;cursor:default;">
+                    <a href="#" class="btn btn-primary btn-sm disabled" role="button" aria-pressed="true">Borrow</a>
                 @endif
+                
             </div>
         </div>
     @endif

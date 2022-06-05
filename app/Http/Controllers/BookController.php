@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\Category;
 use App\Models\Author;
+use App\Models\Publication;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -32,6 +33,7 @@ class BookController extends Controller
     {
         $a=Book::all();
         $auth=Author::all();
+        $pub=Publication::all();
         return view('books.description',['books'=>$a],['auth'=>$auth]);
     }
  

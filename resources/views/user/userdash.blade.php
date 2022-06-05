@@ -27,8 +27,8 @@
         <div class="col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"><a href="/home" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
           <img src='{{asset("images/logo.png")}}' width="150" height="50" alt="logo" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </a></div>
-          <div style="margin: 10px; font-size: 20px;"><b>@if(Auth::guard('web')->check())
-           Hello {{Auth::guard('web')->user()->id}}
+          <div style="margin: 10px; font-size: 20px;"><b>@if(Auth::check())
+           Hello {{Auth::user()->name}}
         @endif
          </b></div> 
           <div class="text-end">
