@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Admin;
 use App\Models\Borrow_record;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class ReturnController extends Controller
 {
@@ -14,7 +14,7 @@ class ReturnController extends Controller
     {
     
         $result=DB::table('borrow_records')
-        ->select ('borrow_records.status','borrow_records.returned_date','books.title','users.name')
+        ->select ('borrow_records.id','borrow_records.status','borrow_records.returned_date','borrow_records.issued_date','borrow_records.due_date','books.title','users.name','users.email')
         ->join('books','borrow_records.book_id','=','books.id')
         ->join('users','borrow_records.user_id','=','users.id')
         ->get();

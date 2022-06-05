@@ -26,30 +26,10 @@
         <div class="col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"><a href="/home" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
           <img src='{{asset("images/logo.png")}}' width="150" height="50" alt="logo" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </a></div>
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          
-          <li><a href="/home" class="nav-link px-2 text-white">Home</a></li>&nbsp;&nbsp;
-          <li><a href="/books" class="nav-link px-2 text-white">Books</a></li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-             <font color="white">Browse</font>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="http://localhost:8000/categories/1">Fiction</a>
-              <a class="dropdown-item" href="http://localhost:8000/categories/2">Non-fiction</a>
-              <a class="dropdown-item" href="http://localhost:8000/categories/3">Thriller</a>
-              <a class="dropdown-item" href="http://localhost:8000/categories/4">Biography</a>
-              <a class="dropdown-item" href="http://localhost:8000/categories/5">Horror</a>
-
-            </div>
-          </li>
-        </ul>
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-          <input type="search" class="form-control form-control-dark text-white bg-dark" placeholder="Search..." aria-label="Search">
-        </form>
-        <div style="margin: 10px; font-size: 20px;"><b>
-         
-        
+          <div style="margin: 10px; font-size: 20px;"><b>@if(Auth::check())
+           Hello {{Auth::user()->name}}
+        @endif
+         </b></div> 
           <div class="text-end">
           <a href="{{route('logout-user')}}"><button style="background-color:grey; border-color:grey" type="button" class="btn btn-warning">Log Out</button></a>
           </div>

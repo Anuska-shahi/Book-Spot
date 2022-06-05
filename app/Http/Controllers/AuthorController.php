@@ -75,7 +75,7 @@ class AuthorController extends Controller
     {
         $data=Author::find($id);
         $data->delete();
-        return redirect('author');
+        return redirect('member1');
     }
 
     /**

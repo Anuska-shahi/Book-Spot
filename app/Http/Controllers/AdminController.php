@@ -7,8 +7,7 @@ use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Session;
-
+use Illuminate\Support\Facades\Session;
 class AdminController extends Controller
 {
     //
@@ -35,7 +34,7 @@ public function login(Request $request)
     
     if(Auth::guard('admin')->attempt($request->only('email','password'),$request->filled('remember'))){
         //Authentication passed...
-        return redirect('dash');
+        return redirect('adminbook');
     }
 
     //Authentication failed...
