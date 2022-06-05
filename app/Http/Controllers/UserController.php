@@ -173,7 +173,7 @@ class UserController extends Controller
             {
                 $request->session()->put('loginId',$user->id);
                 Auth::attempt($request->except('_token'));
-                return redirect()->route('dash1');
+                return redirect()->route('home');
             }
             else{
                 return back()->with('fail','password not matched');
@@ -196,13 +196,13 @@ class UserController extends Controller
         $data=User::where('id','=', Session::get('loginId'))->first();
         $result=DB::table('users')
         -> select ('users.id','users.name','users.email','borrow_records.issued_date','borrow_records.due_date'
-                    ,'borrow_records.returned_date','borrow_records.status','books.title')
+                    ,'borrow_records.returned_date','borrow_records.status','books.title','users.first_name','users.last_name','users.address','users.dob','users.phone_no')
         ->join('borrow_records','users.id','=','borrow_records.user_id')
         ->join('books','borrow_records.book_id','=','books.id')
         ->where('users.id',Session::get('loginId'))
         ->get();
         $data['result']=$result;
-         return view('user.userdash',$data);
+        return view('user.userdash',$data);
         }
         
     }
@@ -210,10 +210,35 @@ class UserController extends Controller
     //logout
     public function logoutUser()
     {
-        if(Session::has('loginId'))
-        {
-            Session::pull('loginId');
             return redirect()->route('userlog');
-        }
+    }
+
+    public function myprofile(Request $request)
+    {
+        $data=array();
+        
+        $data=User::where('id','=', Session::get('loginId'))->first();
+        $result=DB::table('users')
+        -> select ('users.id','users.name','users.email','borrow_records.issued_date','borrow_records.due_date'
+                    ,'borrow_records.returned_date','borrow_records.status','books.title','users.first_name','users.last_name','users.address','users.dob','users.phone_no')
+        ->join('borrow_records','users.id','=','borrow_records.user_id')
+        ->join('books','borrow_records.book_id','=','books.id')
+        ->where('users.id',Session::get('loginId'))
+        ->get();
+        $data['result']=$result;
+        return view('myprofile',$data);
+    }
+
+    public function userupdate(Request $req)
+    {
+        $data=User::find($req->id);
+        $data->name=$req->name;
+        $data->first_name=$req->first_name;
+        $data->last_name=$req->last_name;
+        $data->address=$req->address;
+        $data->dob=$req->dob;
+        $data->phone_no=$req->phone_no;
+        $data->save();
+        return redirect('profile');
     }
 }

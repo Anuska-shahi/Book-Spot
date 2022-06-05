@@ -50,23 +50,25 @@
             </div>
           </li>
         </ul>
-           <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" action="{{route('search')}}" >
-            <div class="input-group">  
-              <input type="search" class="form-control form-control-dark text-white bg-dark" placeholder="Search..." aria-label="Search"  name="search">
-              <span class="input-group-btn">
-                <button type="submit" class="btn btn-light">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                </svg> 
-                </button>
-              </span>
-              </div>
-            </form>
+
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+          <input type="search" class="form-control form-control-dark text-white bg-dark" placeholder="Search..." aria-label="Search">
+        </form>
+        @if(Auth::check())
         <div class="text-end">
-          <a href="/adminlog"><button type="button" style="background-color:white; border-color:grey" class="btn btn-outline-light me-2"><font color="black">Login</font>
+          <a href="{{route('logout-user')}}"><button style="background-color:grey; border-color:grey" type="button" class="btn btn-warning">Log Out</button></a>
+          </div>
+        <div style="margin: 10px; font-size: 20px;"><b>
+          <a href="/profile">{{Auth::user()->name}}</a>
+          </b></div> 
+
+        @else
+        <div class="text-end">
+        <a href="/adminlog"><button type="button" style="background-color:white; border-color:grey" class="btn btn-outline-light me-2"><font color="black">Login</font>
           </button></a>
           <a href="/registration"><button style="background-color:grey; border-color:grey" type="button" class="btn btn-warning">Sign-up</button></a>
         </div>
+        @endif
       </div>
     </div>
 

@@ -15,8 +15,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-</head>
-<body>
+
     <div class="b-example-divider"></div>
 
     <header class="p-3 bg-dark text-white  ">
@@ -36,45 +35,13 @@
           </div>
         </div>
       </div>
+      
     </header>
-
-
-<div class="cont">
-<div class="row">
-<h4>Welcome to User dashboard</h4>
-    <table class="table">
-        <thead>
-          <th>Id</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Book Name</th>
-            <th>Issued date</th>
-            <th>Due date</th>
-            <th>Returned date</th>
-            <th>Status</th>
-        </thead>
-        <tbody>
-            
-            @foreach($result as $row)
-            <tr>
-            <td>{{$row->id}}</td>
-                <td>{{$row->name}}</td>
-                <td>{{$row->email}}</td>
-                <td>{{$row->title}}</td>
-                <td>{{$row->issued_date}}</td>
-                <td>{{$row->due_date}}</td>
-                <td>{{$row->returned_date}}</td>
-                <td>{{$row->status}}</td>
-                @endforeach
-            </tr>
-       
-        </tbody>
-    </table>
-</div>
-</div>
 @section('footer')
 @include('footer')
 @stop
+</head>
+<body>
 </body>
 </html>
  

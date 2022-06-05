@@ -1,6 +1,7 @@
-@extends('layout')
 @section('title','Home')
 @section('content')
+
+@extends('layout')
 <div class="example">
     <img src='{{asset("images/lib4.jpg")}}' alt="image" style="width:100%;">
     
